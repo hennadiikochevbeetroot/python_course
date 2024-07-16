@@ -1,5 +1,6 @@
 # This is a comment
 # This is also a comment
+# TODO: leave other comments
 
 """
 This
@@ -19,10 +20,13 @@ it's equivalent in Python
 # Ctrl + Space for autocompletion trigger
 # Ctrl + P for showing parameters list
 # Ctrl + Alt + L to trigger autoformatting
-print('Basic text')
+# Ctrl + / to comment
+
+
+print('Basic \ntext')
 print(123)
 print(1.23)
 print(True)
 print(False)
-print('\t')
+print('\t\n')
 print(None)

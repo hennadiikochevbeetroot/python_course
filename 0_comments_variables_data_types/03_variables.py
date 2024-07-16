@@ -1,12 +1,14 @@
 # We may assign any value to variable
 
 a = 1
+# a = 'string'
 b = 'test string'
 c = True
 d = None
 e = 5.6
 
-print('Adding int and float: ', a + e)
+result = a + e
+print('Adding int and float: ', result)
 print('B variable is: ', b)
 print('Boolean C variable: ', c)
 print(d)
@@ -31,4 +33,9 @@ value2 **= 6
 str_a = 'String A'
 str_b = 'String B'
 str_result = str_a + '    ' + str_b
+
 print(str_result)
+
+# Or even multiply several times
+str_result2 = str_a * 4
+print(str_result2)

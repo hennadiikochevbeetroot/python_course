@@ -13,20 +13,19 @@ print(type(4.56))
 # Basic maths
 print(2 + 1)
 print(5 - 2)
-print(9 / 3)
+print(9 * 8 * 7)
+print(12 / 5)
 print(13 // 2)
 
-# / float division, // rounding down int division
+# / float division, // rounding down int division (floor division)
 print(9 / 4, type(9 / 4))
 print(9 // 4, type(9 // 4))
 
-print(8 % 5)    # get remainder
-print(3 ** 2)   # raise to power
+print(8 % 5)  # get remainder
+print(3 ** 2)  # raise to power
 
+print(13 % 2)
 
 # Negative and positive changing possibility
 print(--1)
 print(+-13)
-
-
-

@@ -21,10 +21,12 @@ print(d)
 print()
 
 # Multiline strings
-e = 'line1\
+e = 'line1\n\
 line2'
-f = ('line1'
+f = ('line1\n'
      'line2')
+h = ('text1'
+     '')
 g = """
 Really
 multiline 
