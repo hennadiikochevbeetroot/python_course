@@ -13,23 +13,18 @@ num2 = 10
 
 # Option 1 - 4 lines:
 if num1 > num2:
-    max_value = a
+    max_value = num1
 else:
-    max_value = b
+    max_value = num2
 
 # Option 2 - 1 line:
 max_value = num1 if num1 > num2 else num2
 print('Max value: ', max_value)
 
-
 # Nested ternary operators - harder to read
 # But makes us possible to write cool oneliners
 # Another drawback if that debugger cannot get inside of if else logic
+# const variable = 124214 ? true : false
 
 nums_compared = 'num1 == num2' if num1 == num2 else 'num1 > num2' if num1 > num2 else 'num1 <= num2'
 print(nums_compared)
-
-
-
-
-
