@@ -1,9 +1,8 @@
 from collections import Counter, namedtuple, OrderedDict
 
-
 animals = ['Cat', 'Dog', 'Horse', 'Dog']
 animal_counter = Counter(animals)
-print(animal_counter)
+print(animal_counter['Dog'])
 
 ordered_dict = OrderedDict()
 ordered_dict['key1'] = 2
@@ -15,7 +14,3 @@ for key in ordered_dict:
 Point = namedtuple('Point', ['x', 'y'])
 p = Point(x=1, y=2)
 print(f'Coordinates: X: {p.x}, Y: {p.y}')
-
-
-
-
