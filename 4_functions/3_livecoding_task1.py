@@ -5,7 +5,15 @@
 # func(1,2,2,3,4,4,4,4,4,9) -> 'Longest: number 4, times 5'
 #
 
-def get_longest_consecutive_run(*numbers: tuple[int]) -> str:
+def parse_numbers_input(numbers_csv: str) -> tuple[int]:
+    # "     1,   4, 5, 6, 6, 7,     9,  11        "
+    numbers_csv = numbers_csv.strip().replace(' ', '')
+    numbers = tuple(int(number) for number in numbers_csv.split(','))
+
+    return numbers
+
+
+def get_longest_consecutive_run(numbers: tuple[int]) -> str:
     curr_number, max_number = None, None
     curr_times, max_times = 0, 0
 
@@ -23,6 +31,8 @@ def get_longest_consecutive_run(*numbers: tuple[int]) -> str:
     return f'Longest: number {max_number}, times {max_times}'
 
 
-print(get_longest_consecutive_run(1,2,2,3,4,4,4,4,4,9))
-
-
+if __name__ == '__main__':
+    numbers_csv = input('Enter numbers, comma-separated: ')
+    numbers = parse_numbers_input(numbers_csv)
+    result = get_longest_consecutive_run(numbers)
+    print('Result: ', result)
