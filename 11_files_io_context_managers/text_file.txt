@@ -1,0 +1,4 @@
+some content
+line 2
+line 3
+end of the file (EOF)
