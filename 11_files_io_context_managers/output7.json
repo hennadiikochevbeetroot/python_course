@@ -1,0 +1,10 @@
+{
+    "Key1": "Value1",
+    "Prime number": 13,
+    "Booleans": [
+        true,
+        false
+    ],
+    "Nothing": null,
+    "Current timestamp": "2024-08-01T21:31:43.597609"
+}
