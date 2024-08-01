@@ -37,16 +37,20 @@ Options:
 POSSIBLE_OPTIONS = (0, 1, 9)
 
 
-def validate_option(user_input: str) -> bool:
+def validate_option(user_input: str) -> tuple[bool, int | None]:
     user_input = user_input.strip()
-    return user_input.isdigit() and int(user_input) in POSSIBLE_OPTIONS
+    is_valid = user_input.isdigit() and int(user_input) in POSSIBLE_OPTIONS
+    option = int(user_input) if is_valid else None
+
+    return is_valid, option
 
 
 def phonebook_app() -> None:
     print(HELP_MESSAGE)
     while True:
         user_input = input('Choose an option: ')
-        if not validate_option(user_input):
+        is_valid, option = validate_option(user_input)
+        if not is_valid:
             possible_options = ', '.join([str(option) for option in POSSIBLE_OPTIONS])
             print(f'Incorrect option, possible are: {possible_options}')
             continue
