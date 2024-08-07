@@ -8,14 +8,14 @@ from typing import Callable
 def log(file_name: str = 'main.log'):
     def log_deco(func: Callable):
         @wraps(func)
-        def inner(*args, **kwargs):
+        def wrapper(*args, **kwargs):
             result = func(*args, **kwargs)
             with open(file_name, 'a') as log_file:
                 log_file.write(f'{datetime.datetime.now()} LOG: {func.__name__} call result is: {result}\n')
 
             return result
 
-        return inner
+        return wrapper
 
     return log_deco
 

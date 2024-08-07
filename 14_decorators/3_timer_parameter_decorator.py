@@ -8,7 +8,7 @@ from typing import Callable
 def timer(surround: bool = True):
     def timer_deco(func: Callable):
         @wraps(func)
-        def inner(*args, **kwargs):
+        def wrapper(*args, **kwargs):
             start_time = datetime.datetime.now()
             func(*args, **kwargs)
             end_time = datetime.datetime.now()
@@ -20,7 +20,7 @@ def timer(surround: bool = True):
 
             print(message)
 
-        return inner
+        return wrapper
 
     return timer_deco
 

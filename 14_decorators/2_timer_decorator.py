@@ -7,13 +7,13 @@ from typing import Callable
 
 def timer(func: Callable) -> Callable:
     @wraps(func)
-    def inner(*args, **kwargs):
+    def wrapper(*args, **kwargs):
         start_time = datetime.datetime.now()
         func(*args, **kwargs)
         end_time = datetime.datetime.now()
         print('Diff time: ', end_time - start_time)
 
-    return inner
+    return wrapper
 
 
 @timer
