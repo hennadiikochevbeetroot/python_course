@@ -1,3 +1,4 @@
 jupyter
 pytz==2023.3
 numpy
+django
