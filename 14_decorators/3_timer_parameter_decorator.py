@@ -25,12 +25,16 @@ def timer(surround: bool = True):
     return timer_deco
 
 
-@timer(surround=True)
+# @timer(surround=True)
 def sleep_random():
     """Sleeps some time"""
     print('Sleeping')
     time.sleep(random.randint(1, 5))
     print('End sleeping')
+
+
+sleep_random = timer(surround=True)(sleep_random)
+
 
 
 print(sleep_random.__name__)
