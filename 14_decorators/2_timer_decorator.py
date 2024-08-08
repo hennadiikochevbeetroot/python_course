@@ -11,7 +11,7 @@ def timer(func: Callable) -> Callable:
         start_time = datetime.datetime.now()
         func(*args, **kwargs)
         end_time = datetime.datetime.now()
-        print('Diff time: ', end_time - start_time)
+        print('Took time: ', end_time - start_time)
 
     return wrapper
 
@@ -24,7 +24,7 @@ def sleep_random():
     print('End sleeping')
 
 
-print(sleep_random.__name__)
-print(sleep_random.__doc__)
+# print(sleep_random.__name__)
+# print(sleep_random.__doc__)
 
 sleep_random()

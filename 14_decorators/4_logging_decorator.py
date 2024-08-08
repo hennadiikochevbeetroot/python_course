@@ -6,7 +6,7 @@ from typing import Callable
 
 
 def log(file_name: str = 'main.log'):
-    def log_deco(func: Callable):
+    def decorator(func: Callable) -> Callable:
         @wraps(func)
         def wrapper(*args, **kwargs):
             result = func(*args, **kwargs)
@@ -17,15 +17,13 @@ def log(file_name: str = 'main.log'):
 
         return wrapper
 
-    return log_deco
+    return decorator
 
 
-@log()
-def calculate_pi_with_precision(digits: int) -> Decimal:
+@log('second.log')
+def calculate_pi_with_precision(digits: int = 10) -> Decimal:
     """Calculates PI number up to needed precision"""
-    t = Decimal(0)
     pi = Decimal(0)
-    deno = Decimal(0)
 
     for k in range(digits):
         t = ((-1) ** k) * (factorial(6 * k)) * (13591409 + 545140134 * k)
@@ -38,4 +36,4 @@ def calculate_pi_with_precision(digits: int) -> Decimal:
     return round(pi, digits)
 
 
-calculate_pi_with_precision(17)
+calculate_pi_with_precision(20)
