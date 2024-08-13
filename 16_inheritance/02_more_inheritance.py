@@ -32,9 +32,12 @@ class Taxi(Car):
         self.current_passengers -= passengers_num
 
     def __str__(self) -> str:
-        return (f'Tax {self.brand} {self.model} year {self.year} \n'
+        return (f'Taxi {self.brand} {self.model} year {self.year} \n'
                 f'mileage {self.total_driven_km}\n'
                 f'Passengers now: {self.current_passengers}')
+
+    def __repr__(self):
+        return f'Taxi {self.brand} {self.model} year {self.year}'
 
 
 # TODO: Lorry class example, multiple inheritance
@@ -42,4 +45,7 @@ class Taxi(Car):
 taxi = Taxi('Daewoo', 'Lanos', 2000)
 taxi.pickup_passengers(2)
 taxi.drive(15)
-print(taxi)
+print(str(taxi))
+print()
+print()
+print(repr(taxi))
