@@ -1,6 +1,11 @@
 import abc
 
 
+# Before abc module usage:
+# Abstract classes and their methods/properties could be defined by
+# raise NotImplementedError('Must be implemented in child class')
+
+
 # Older standard (but you may consider it more readable)
 class Parent(metaclass=abc.ABCMeta):
     @abc.abstractmethod
