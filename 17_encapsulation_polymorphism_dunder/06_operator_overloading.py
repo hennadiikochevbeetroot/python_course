@@ -1,4 +1,4 @@
-from __future__ import annotations  # for using class name in its methods typehints
+from __future__ import annotations, barry_as_FLUFL  # for using class name in its methods typehints
 
 
 class Rectangle:
@@ -30,10 +30,6 @@ class Rectangle:
     def __floordiv__(self, other: Rectangle) -> int | float:
         return self.area // other.area
 
-    # abs function overload
-    def __abs__(self) -> int:
-        return abs(self.area)
-
     # self - first argument, other - second, operator >
     def __gt__(self, other: Rectangle) -> bool:
         return self.area > other.area
@@ -58,6 +54,10 @@ class Rectangle:
     def __ne__(self, other: Rectangle) -> bool:
         return self.side1 != other.side1 or self.side2 != other.side2
 
+    # abs function overload
+    def __abs__(self) -> int:
+        return abs(self.area)
+
     # bool function call
     def __bool__(self) -> bool:
         return self.side1 > 0 and self.side2 > 0
@@ -66,10 +66,26 @@ class Rectangle:
     def __len__(self):
         return max(self.side1, self.side2)
 
+    def __and__(self, other: Rectangle) -> bool:
+        return False
+
+    def __pow__(self, power, modulo=None):
+        return 43
+
+
 
 r1 = Rectangle(3, 4)
 r2 = Rectangle(2, 5)
-print('Sum:', r1 + r2)
-print('Sum:', r1.__add__(r2))
+# print('Sum:', r1 + r2)
+# print('Sum:', r1.__add__(r2))
+
+# print(len(r2))
+print(r1 ** 5)
 
 # All others work in same way
+
+# 1 2 3   4 5 6
+# 4 5 6 x 6 7 8
+# 7 8 9   1 2 3
+
+

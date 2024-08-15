@@ -13,6 +13,8 @@ class Cylinder:
     def volume(self):
         return self.__rounded_pi() * self.__radius ** 2 * self.__height
 
+    # volume = lambda self: self.__rounded_pi() * self.__radius ** 2 * self.__height
+
 
 cylinder = Cylinder(4, 5)
 print(cylinder.volume)
@@ -24,3 +26,6 @@ print(cylinder.volume)
 print('Hack which allows to get private properties')
 print(cylinder._Cylinder__height)
 print(cylinder._Cylinder__radius)
+
+
+print(cylinder.__dict__)

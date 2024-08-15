@@ -12,6 +12,7 @@ print(add(7.89, 56.43))
 print(add('Hello,', 'World'))
 print(add([1, 2, 3], [4, 5, 6]))
 print(add((1, 2, 3), (4, 5, 6)))
+print(add(56, 'string'))
 
 
 # In static-typed languages like C++, Java, C#, such behaviour cannot be default.

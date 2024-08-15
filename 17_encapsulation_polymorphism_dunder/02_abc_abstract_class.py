@@ -1,10 +1,8 @@
 import abc
 
-
 # Before abc module usage:
 # Abstract classes and their methods/properties could be defined by
 # raise NotImplementedError('Must be implemented in child class')
-
 
 # Older standard (but you may consider it more readable)
 class Parent(metaclass=abc.ABCMeta):
@@ -48,4 +46,22 @@ class Parent(abc.ABC):
 
 
 class Child(Parent):
-    pass
+    def some_method(self):
+        pass
+
+    @property
+    def prop(self):
+        pass
+
+    @classmethod
+    def class_method(cls):
+        pass
+
+    @staticmethod
+    def static_method():
+        pass
+
+
+c = Child()
+print(c)
+
