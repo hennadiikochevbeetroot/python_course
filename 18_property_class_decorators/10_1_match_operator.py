@@ -11,6 +11,7 @@ def get_number_explanation_conditions(number: int) -> str:
 
     return f'Number {number} is {description}'
 
+
 # Introducted in Python 3.10
 def get_number_explanation_match(number: int) -> str:
     description = None
