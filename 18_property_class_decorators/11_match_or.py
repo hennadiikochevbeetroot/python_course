@@ -1,3 +1,15 @@
+import random
+
+
+def get_number_type(natural_less_than_10: int) -> str:
+    desc = None
+    # if natural_less_than_10 == 3 or natural_less_than_10 == 5 or natural_less_than_10 == 7:
+    if natural_less_than_10 in (3, 5, 7):
+        desc = 'Prime number'
+    elif random.randint(0, 10) < 9:
+        desc = 'Random'
+
+
 
 
 def get_number_type(natural_less_than_10: int) -> str:
@@ -5,8 +17,8 @@ def get_number_type(natural_less_than_10: int) -> str:
     match natural_less_than_10:
         case 3 | 5 | 7:
             desc = 'Prime number'
-        case 2 | 4 | 6 | 8 as even_number:
-            desc = f'Number is: {even_number}'
+        case natural_less_than_10 if random.randint(0, 10) < 9:
+            desc = f'Number is: {natural_less_than_10}'
         case 1:
             desc = 'Exactly one'
         case _:

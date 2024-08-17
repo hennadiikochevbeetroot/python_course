@@ -1,4 +1,10 @@
 def weekday(day_number: int):
+    list_of_tuples = [
+        (1, 'Monday'),
+        (2, 'Tuesday'),
+        # etc
+    ]
+
     match day_number:
         case 1: return "Monday"
         case 2: return "Tuesday"
