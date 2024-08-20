@@ -1,7 +1,7 @@
+from typing import Generator
 
 
-
-def yield_multiple_statements():
+def yield_multiple_statements() -> Generator[str, None, None]:
     yield "This is the first statement"
     yield "This is the second statement"
     yield "This is the third statement"

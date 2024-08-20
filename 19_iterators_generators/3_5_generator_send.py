@@ -1,4 +1,7 @@
-def square_user_inputs():
+from typing import Generator
+
+
+def square_user_inputs() -> Generator[int, int, None]:
     while True:
         number = yield
         yield number ** 2

@@ -18,5 +18,8 @@ class Fibonacci:
         raise StopIteration
 
 
+# 0 1 1 2 3 5 8 13 21
+
+
 for idx, fib in enumerate(Fibonacci(15), 1):
     print(f'Fibonacci number {idx}: {fib}')

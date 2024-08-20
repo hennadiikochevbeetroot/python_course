@@ -28,10 +28,11 @@ for pair in itertools.product(list1, list2):
 print('--------------------------------')
 
 # Permutations - all possible orders in a list
-numbers = [5, 8, 9, 4]
+numbers = [5, 8, 9, 4]  # n! = 4! = 1 * 2 * 3 * 4 = 24
+sorted_numbers = sorted(numbers)
 for perm in itertools.permutations(numbers):
     print('Current permutation: ', perm)
-    if list(perm) == sorted(numbers):
+    if list(perm) == sorted_numbers:
         print('Permutation above is sorted')
 
 print('--------------------------------')
@@ -49,13 +50,10 @@ is_even = lambda num: num % 2 == 0
 print('First even numbers: ', end='')
 print(list(itertools.takewhile(is_even, numbers3)))
 
-
 # Dropwhile starts taking values, when given function returns false for first time
 print('First non-even number and all next: ', end='')
 print(list(itertools.dropwhile(is_even, numbers3)))
 
-
 # Filterfalse is like filter, but returns only which are false
 print('All non-even numbers: ', end='')
 print(list(itertools.filterfalse(is_even, numbers3)))
-
