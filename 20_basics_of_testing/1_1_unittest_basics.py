@@ -4,6 +4,10 @@ import unittest
 
 class TestCalculator(unittest.TestCase):
 
+    def definitely_not_a_test(self):
+        print('Not a test function')
+        print('All test function ran by unittest, need to start with test')
+
     def test_add(self):
         two = Calculator.add(1, 1)
         self.assertEqual(two, 2)
