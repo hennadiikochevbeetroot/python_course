@@ -1,3 +1,4 @@
+import datetime
 import unittest
 from typing import Iterable
 
@@ -11,6 +12,7 @@ class TestAsserts(unittest.TestCase):
         self.assertFalse(not true)
         self.assertIs(true, True)
         self.assertIsNot(true, False)
+        self.assertTrue(true is not False)
         self.assertIsNone(none)
         self.assertIsNotNone(not none)
         self.assertIsInstance([], Iterable)
@@ -18,6 +20,10 @@ class TestAsserts(unittest.TestCase):
 
         self.assertAlmostEqual(4, 5, delta=1)
         self.assertNotAlmostEqual(4, 20, delta=1)
+
+        current_time = datetime.datetime.now()
+        next_time = datetime.datetime.now()
+        self.assertAlmostEqual(current_time, next_time, delta=datetime.timedelta(seconds=1))
 
     def test_compare(self):
         self.assertGreater(7, 4)
@@ -30,6 +36,7 @@ class TestAsserts(unittest.TestCase):
         self.assertTupleEqual((1, 2), (1, 2))
         self.assertSetEqual({2, 3}, {3, 2})
         self.assertDictEqual({'key1': 1, 'key2': 2}, {'key2': 2, 'key1': 1})
+
         self.assertSequenceEqual([1, 2, 3], (1, 2, 3))
         self.assertCountEqual([1, 2, 3], (3, 2, 1))
 

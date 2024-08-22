@@ -70,14 +70,14 @@ class EmployeeDatabase:
         for employee in employees:
             self.add_employee(employee)
 
-    def add_employee(self, employee):
+    def add_employee(self, employee: Employee):
         # Add an employee object to the database
         if isinstance(employee, Employee):
             self.__employees.append(employee)
         else:
             raise TypeError("Only Employee instances can be added")
 
-    def remove_employee(self, employee):
+    def remove_employee(self, employee: Employee):
         # Remove an employee object from the database
         if employee in self.__employees:
             self.__employees.remove(employee)

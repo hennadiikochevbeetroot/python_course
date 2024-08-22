@@ -27,12 +27,14 @@ class TestCalculator(unittest.TestCase):
     def test_divide_by_zero(self):
         divide_by_zero = lambda: Calculator.divide(5, 0)
         self.assertRaises(ZeroDivisionError, divide_by_zero)
+        # self.assertRaises(ZeroDivisionError, Calculator.divide, 5, 0)
 
     def test_divide_by_zero_other(self):
         self.assertRaises(ZeroDivisionError, Calculator.divide, 5, 0)
 
     def test_divide_by_zero_context_manager(self):
         with self.assertRaises(ZeroDivisionError) as raise_context:
+            # Calculator.add(3, 4)
             Calculator.divide(5, 0)
 
         self.assertEqual(str(raise_context.exception), 'Num2 cannot be zero')

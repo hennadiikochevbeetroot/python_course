@@ -9,14 +9,18 @@ def loggify(text: str) -> str:
     return f'LOG: {text}'
 
 
-@pytest.mark.parametrize(
-    'text',
-    [
-        'Text1',
-        'Example2',
-        'SomeText3',
-    ]
-)
+# @pytest.mark.parametrize(
+#     'text',
+#     [
+#         'Text1',
+#         'Example2',
+#         'SomeText3',
+#     ]
+# )
+
+@pytest.mark.parametrize('text', ['Text1',
+                                  'Example2',
+                                  'SomeText3'])
 def test_loggify(text: str):
     assert loggify(text) == 'LOG: ' + text
 

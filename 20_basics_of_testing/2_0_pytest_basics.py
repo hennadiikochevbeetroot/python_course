@@ -17,19 +17,25 @@ import pytest
 # --failed-first run all tests, but first run those which failed last time
 
 
-# @pytest.mark.run_this_time
-def test_true():
+@pytest.mark.run_this_time
+def test_default_true():
     assert True
 
 
-def test_one():
-    # assert False
+def test_tuple_equal():
+    assert (1, 2) == (1, 2)
+
+
+def test_default_one():
+    assert False
     assert 1 > 0
 
 
-# @pytest.mark.run_this_time
+@pytest.mark.run_this_time
 def test_equal_lists():
-    assert [1, 2] == [1, 2]
+    a_list = [1, 2, 3]
+    b_list = [1, 2, 4]
+    assert a_list == b_list
 
 # def test_failing():
 #     assert True == False
