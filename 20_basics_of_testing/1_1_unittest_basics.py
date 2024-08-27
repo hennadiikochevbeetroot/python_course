@@ -2,6 +2,10 @@ from classes_to_test import Calculator
 import unittest
 
 
+# test_case = unittest.TestCase()
+# test_case.assertEqual(2, 2)
+
+
 class TestCalculator(unittest.TestCase):
 
     def definitely_not_a_test(self):
@@ -11,6 +15,8 @@ class TestCalculator(unittest.TestCase):
     def test_add(self):
         two = Calculator.add(1, 1)
         self.assertEqual(two, 2)
+        # self.assertEqual()
+        # assert two == 2
 
     def test_subtract(self):
         three = Calculator.subtract(5, 2)

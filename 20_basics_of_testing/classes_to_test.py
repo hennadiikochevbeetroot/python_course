@@ -91,7 +91,7 @@ class EmployeeDatabase:
         # Return a list of all employee objects
         return self.__employees
 
-    def __getitem__(self, index):
+    def __getitem__(self, index) -> Employee:
         return self.__employees[index]
 
     def find_employee_by_name(self, first_name, last_name):

@@ -22,3 +22,7 @@ def test_something_long():
     calculation = 4 ** 2
     time.sleep(random.randint(1, 5))
     assert calculation == 16
+
+
+def test_other():
+    assert True

@@ -7,7 +7,7 @@ def temp_environment(**envs):
     """Temporarily set environment variables inside the context … """
 
     # Save old vars and replace them with new ones
-    original_env = {k: os.environ.get(k) for k in envs}
+    original_env = {env: os.environ.get(env) for env in envs}
     os.environ.update(envs)
 
     try:

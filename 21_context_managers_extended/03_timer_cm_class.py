@@ -4,14 +4,16 @@ import time
 
 class Timer:
     def __enter__(self):
+        print('Timer start...')
         self.start_time = time.time()
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
+        print('Timer end...')
         self.end_time = time.time()
 
     def __str__(self) -> str:
-        took_time = round(float(self.end_time - self.start_time), 3)
+        took_time = float(self.end_time - self.start_time)
         return f'Took {took_time} seconds'
 
 
