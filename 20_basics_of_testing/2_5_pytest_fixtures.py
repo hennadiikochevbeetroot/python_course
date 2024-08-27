@@ -5,13 +5,9 @@ import pytest
 # By default, mst fixtures are being put into conftest.py
 # And therefore not imported, but instead read by pytest
 
-@pytest.fixture()
+@pytest.fixture
 def list_0_to_10() -> list[int]:
     return list(range(11))
-
-
-def fibonacci_first_10() -> list[int]:
-    return [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
 
 
 def test_list_length(list_0_to_10):
