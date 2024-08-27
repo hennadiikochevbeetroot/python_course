@@ -29,5 +29,8 @@ class File:
 
 
 if __name__ == '__main__':
-    with File('context.txt', 'a') as file:
-        file.write('Hello!\n')
+    file = File('context.txt', 'a')    # __init__ call
+    with file as f:                              # __enter__ call
+        f.write('Hello!\n')
+
+    # __exit__ call
