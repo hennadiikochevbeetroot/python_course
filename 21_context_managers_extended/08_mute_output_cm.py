@@ -8,6 +8,7 @@ import sys
 def mute_output():
     original_stdout = sys.stdout
     sys.stdout = open(os.devnull, 'w')
+    # echo "text" > /dev/null
     try:
         yield
     finally:

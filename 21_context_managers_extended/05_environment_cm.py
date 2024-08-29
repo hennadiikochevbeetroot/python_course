@@ -8,6 +8,8 @@ def temp_environment(**envs):
 
     # Save old vars and replace them with new ones
     original_env = {env: os.environ.get(env) for env in envs}
+
+    # UPSERT = INSERT + UPDATE
     os.environ.update(envs)
 
     try:
