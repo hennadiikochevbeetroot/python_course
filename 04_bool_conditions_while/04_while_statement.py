@@ -7,7 +7,7 @@
 
 threshold = 5
 counter = 0
-while counter < threshold:
+while counter <= threshold:
     print(f'Counter value: {counter}, increase by 1')
     counter += 1
 

@@ -6,8 +6,8 @@ big_threshold = 10000
 counter = 0
 while counter < big_threshold:
     print(f'Counter state: {counter}')
-    if counter == 5:
-        print('Counter became 5, let us stop execution')
+    if counter % 5 == 0:
+        print('Counter divides by 5, let us stop execution')
         break
     counter += 1
 

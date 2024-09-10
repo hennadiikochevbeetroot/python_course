@@ -26,5 +26,7 @@ print('Max value: ', max_value)
 # Another drawback if that debugger cannot get inside of if else logic
 # const variable = 124214 ? true : false
 
+num1 = 5
+num2 = 10
 nums_compared = 'num1 == num2' if num1 == num2 else 'num1 > num2' if num1 > num2 else 'num1 <= num2'
 print(nums_compared)

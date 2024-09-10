@@ -2,6 +2,21 @@
 # This is also a comment
 # TODO: leave other comments
 
+9 // 4
+8 / 4
+
+'12345'.isdigit()
+
+try:
+    a = int('somestring')
+except ValueError:
+    print('Not a string')
+
+
+'''
+print
+'''
+
 """
 This
 is a

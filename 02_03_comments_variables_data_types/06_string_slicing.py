@@ -24,4 +24,9 @@ print(test_str[:])
 print(test_str[::3])
 
 
+d = {'hello': 'world'}
+if 'hello' in d:
+    g = d['hello']
+d.get('hello')
+
 

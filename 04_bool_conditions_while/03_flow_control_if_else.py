@@ -38,7 +38,7 @@ else:
 # And nested if elif else conditions will also work
 # Nesting level is unlimited but better try
 # keeping your code simple and understandable
-new_number = 10
+new_number = 33
 if new_number < 5:
     print('new_number is less than 5')
 elif new_number % 3 == 0:
