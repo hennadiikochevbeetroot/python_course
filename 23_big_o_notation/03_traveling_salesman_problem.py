@@ -29,6 +29,7 @@ def traveling_salesman_bruteforce(distances: list[list[int]]) -> tuple[tuple[int
     min_distance: int = float('inf')
 
     # Evaluate each route
+    # O(N!)
     for route in all_possible_routes:
         # Calculate the total distance for this route
         current_distance = calculate_total_distance(route, distances)
