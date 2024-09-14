@@ -1,3 +1,6 @@
+# heart - earth
+# [None,None,a,r,t]   [None,a,r,t,None]
+
 
 # O(N^2) solution
 def is_anagram(s1: str, s2: str) -> bool:

@@ -1,8 +1,12 @@
 # O(N) solution
 
+# civic   - 2*c,2*i,1*v
+# civic   - 2*c,2*i,1*v
+
+
 ALPHABET_SIZE = 26
 
-
+# N + N + ALPHABET_SIZE => 2N + C => N
 def is_anagram(s1: str, s2: str) -> bool:
     count1 = [0] * ALPHABET_SIZE
     count2 = [0] * ALPHABET_SIZE
@@ -22,12 +26,16 @@ def is_anagram(s1: str, s2: str) -> bool:
 
     idx = 0
     still_ok = True
-    # O(N) worst case
-    while idx < ALPHABET_SIZE and still_ok:
-        if count1[idx] == count2[idx]:
-            idx += 1
-        else:
+    # O(ALPHABET_SIZE) worst case
+    # while idx < ALPHABET_SIZE and still_ok:
+    #     if count1[idx] == count2[idx]:
+    #         idx += 1
+    #     else:
+    #         still_ok = False
+    for pos in range(len(count1)):
+        if count1[pos] != count2[pos]:
             still_ok = False
+            break
 
     return still_ok
 

@@ -1,3 +1,12 @@
+# [0,1,2,3,4,5,6,7,8,9]
+# 10 // 2 // 2 // 2
+# 2 ^ steps = N
+# steps = log2 (N)
+# O(logN) < O(N)
+# 4 < 16
+# 10 < 1024
+
+
 def binary_search_iterative(arr: list[int], target: int):
     left, right = 0, len(arr) - 1
 
@@ -14,7 +23,10 @@ def binary_search_iterative(arr: list[int], target: int):
     return -1  # Target not found
 
 
-def binary_search_recursive(arr, target, left, right):
+
+
+
+def binary_search_recursive(arr: list[int], target: int, left: int, right: int):
     if left > right:
         return -1  # Base case: target not found
 
@@ -23,9 +35,9 @@ def binary_search_recursive(arr, target, left, right):
     if arr[mid] == target:
         return mid
     elif arr[mid] < target:
-        return binary_search_recursive(arr, target, mid + 1, right)
+        return binary_search_recursive(arr, target, left=mid + 1, right=right)
     else:
-        return binary_search_recursive(arr, target, left, mid - 1)
+        return binary_search_recursive(arr, target, left=left, right=mid - 1)
 
 
 a_list = [el for el in range(0, 101, 5)]

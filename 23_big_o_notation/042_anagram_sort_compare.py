@@ -17,11 +17,17 @@ def is_anagram(s1: str, s2: str) -> bool:
     pos = 0
     matches = True
     # O(N)
-    while pos < len(s1) and matches:
-        if s1_list[pos] == s2_list[pos]:
-            pos += 1
-        else:
+    # while pos < len(s1) and matches:
+    #     if s1_list[pos] == s2_list[pos]:
+    #         pos += 1
+    #     else:
+    #         matches = False
+
+    matches = True
+    for pos in range(len(s1_list)):
+        if s1_list[pos] != s2_list[pos]:
             matches = False
+            break
 
     return matches
 
