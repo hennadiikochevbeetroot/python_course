@@ -2,6 +2,7 @@ class Stack:
     def __init__(self):
         self._items = []
 
+    @property
     def is_empty(self):
         return len(self._items) == 0
 
@@ -23,13 +24,20 @@ def is_balanced(parentheses: str) -> bool:
         if symbol == '(':
             stack.push(symbol)
         else:
-            if stack.is_empty():
+            if stack.is_empty:
                 balanced = False
             else:
                 stack.pop()
 
     # By the end stack be empty
-    return balanced and stack.is_empty()
+    return balanced and stack.is_empty
 
 
 print(is_balanced('(()()()())'))
+
+
+# Bonus: enhance to handle all brackets
+# Tip: needed matches function
+# is_balanced('{({([][])}())}') -> True
+# is_balanced('[{()]') -> False
+
