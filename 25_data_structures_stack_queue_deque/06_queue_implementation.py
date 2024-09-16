@@ -2,8 +2,9 @@ class Queue:
     def __init__(self):
         self._items = []
 
+    @property
     def is_empty(self):
-        return bool(self._items)
+        return self.size == 0
 
     def enqueue(self, item):
         self._items.insert(0, item)
@@ -11,11 +12,12 @@ class Queue:
     def dequeue(self):
         return self._items.pop()
 
+    @property
     def size(self):
         return len(self._items)
 
     def __repr__(self):
-        representation = "<Queue>\n"
+        representation = "<Queue> from first to last\n"
         for ind, item in enumerate(reversed(self._items), 1):
             representation += f"{ind}: {str(item)}\n"
         return representation
@@ -29,7 +31,7 @@ if __name__ == "__main__":
     q.enqueue(4)
     q.enqueue('dog')
     q.enqueue(True)
-    print(q.size())
+    print(q.size)
     print(q)
     print(q.dequeue())
     print(q.dequeue())
