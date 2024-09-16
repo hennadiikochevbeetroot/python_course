@@ -2,8 +2,9 @@ class Deque:
     def __init__(self):
         self._items = []
 
+    @property
     def is_empty(self):
-        return self._items == []
+        return self.size == 0
 
     def add_front(self, item):
         self._items.append(item)
@@ -17,6 +18,7 @@ class Deque:
     def remove_rear(self):
         return self._items.pop(0)
 
+    @property
     def size(self):
         return len(self._items)
 
@@ -29,13 +31,13 @@ class Deque:
 
 if __name__ == "__main__":
     d = Deque()
-    print(d.is_empty())
+    print(d.is_empty)
     d.add_rear(4)
     d.add_rear('dog')
     d.add_front('cat')
     d.add_front(True)
-    print(d.size())
-    print(d.is_empty())
+    print(d.size)
+    print(d.is_empty)
     d.add_rear(8.4)
     print(d.remove_rear())
     print(d.remove_front())
