@@ -15,8 +15,10 @@ def gcd_iterative(num1: int, num2: int):
 
 def gcd_recursive(num1: int, num2: int):
     if num2 == 0:
+        # base case
         return num1
     else:
+        # recursive
         return gcd_recursive(num2, num1 % num2)
 
 

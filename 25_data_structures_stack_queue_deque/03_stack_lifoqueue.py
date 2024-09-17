@@ -1,7 +1,7 @@
-from queue import LifoQueue
+from queue import LifoQueue as Stack
 
 # Initializing a stack
-stack = LifoQueue(maxsize=3)
+stack = Stack(maxsize=3)
 
 # qsize() show the number of elements
 # in the stack

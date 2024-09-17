@@ -7,7 +7,7 @@ def is_brackets_correct(input_brackets: str) -> bool:
     }
 
     for symbol in input_brackets:
-        if symbol in opening_brackets:
+        if symbol in opening_brackets.keys():
             opening_brackets[symbol] += 1
         else:
             opening_brackets[matching_brackets[symbol]] -= 1

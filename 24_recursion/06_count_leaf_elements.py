@@ -1,14 +1,18 @@
-def count_leaf_items(item_list):
+from typing import Any
+
+
+def count_leaf_items(item_list: list[Any]):
     """Recursively counts and returns the
        number of leaf items in a (potentially
        nested) list.
     """
     count = 0
     for item in item_list:
-        if isinstance(item, list):
-            count += count_leaf_items(item)
-        else:
-            count += 1
+        count += 1 if type(item) is not list else count_leaf_items(item)
+        # if isinstance(item, list):
+        #     count += count_leaf_items(item)
+        # else:
+        #     count += 1
 
     return count
 

@@ -21,23 +21,32 @@ def is_balanced(parentheses: str) -> bool:
         if not balanced:
             break
 
-        if symbol == '(':
+        if symbol in ['(', '{', '[']:
             stack.push(symbol)
         else:
             if stack.is_empty:
                 balanced = False
             else:
-                stack.pop()
+                opening = stack.pop()
+                if not matches(opening, symbol):
+                    balanced = False
 
     # By the end stack be empty
     return balanced and stack.is_empty
 
 
-print(is_balanced('(()()()())'))
+def matches(opening: str, closing: str) -> bool:
+    match_brackets = {'{': '}', '[': ']', '(': ')'}
+    return match_brackets[opening] == closing
 
+
+print(is_balanced('(()()()())'))
 
 # Bonus: enhance to handle all brackets
 # Tip: needed matches function
 # is_balanced('{({([][])}())}') -> True
 # is_balanced('[{()]') -> False
+# {()} - correct, {(}) - incorrect
 
+print(is_balanced('{({([][])}())}'))
+print(is_balanced('[{()]'))
