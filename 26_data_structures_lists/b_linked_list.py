@@ -4,19 +4,19 @@ from a_node import Node
 
 class LinkedList:
     def __init__(self):
-        self.root = None
+        self.root: Node | None = None
 
     @property
-    def is_empty(self):
+    def is_empty(self) -> bool:
         return self.root is None
 
-    def add_left(self, value: Any):
+    def add_left(self, value: Any) -> None:
         self.root = Node(value, self.root)
 
     @property
-    def size(self):
+    def size(self) -> int:
         count = 0
-        current: Node | None = self.root
+        current = self.root
         while current is not None:
             count += 1
             current = current.next
@@ -24,7 +24,7 @@ class LinkedList:
         return count
 
     def is_present(self, value: Any) -> bool:
-        current: Node | None = self.root
+        current = self.root
         while current is not None:
             if current.value == value:
                 return True
@@ -43,7 +43,7 @@ class LinkedList:
                 previous, current = current, current.next
 
         if previous is None:
-            self.root = current.next()
+            self.root = current.next
         else:
             # even if not found, then last element's next would be None
             previous.next = current.next
