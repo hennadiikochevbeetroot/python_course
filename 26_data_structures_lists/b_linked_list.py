@@ -28,7 +28,6 @@ class LinkedList:
         while current is not None:
             if current.value == value:
                 return True
-
             current = current.next
 
         return False
@@ -58,6 +57,7 @@ class LinkedList:
 
 
 # TODO: add_right, search_position methods
+# TODO: passing list to constructor
 
 if __name__ == "__main__":
     linked_list = LinkedList()
