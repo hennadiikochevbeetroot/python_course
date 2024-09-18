@@ -1,12 +1,5 @@
-from __future__ import annotations
-
 from typing import Any
-
-
-class Node:
-    def __init__(self, value: Any, next: Node | None = None):
-        self.value = value
-        self.next = next
+from a_node import Node
 
 
 class LinkedList:
@@ -63,6 +56,8 @@ class LinkedList:
             current = current.next
         return result + 'NULL(END)'
 
+
+# TODO: add_right, search_position methods
 
 if __name__ == "__main__":
     linked_list = LinkedList()
