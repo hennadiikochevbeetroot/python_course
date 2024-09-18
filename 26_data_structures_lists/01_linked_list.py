@@ -1,0 +1,80 @@
+from __future__ import annotations
+
+from typing import Any
+
+
+class Node:
+    def __init__(self, value: Any, next: Node | None = None):
+        self.value = value
+        self.next = next
+
+
+class LinkedList:
+    def __init__(self):
+        self.root = None
+
+    @property
+    def is_empty(self):
+        return self.root is None
+
+    def add_left(self, value: Any):
+        self.root = Node(value, self.root)
+
+    @property
+    def size(self):
+        count = 0
+        current: Node | None = self.root
+        while current is not None:
+            count += 1
+            current = current.next
+
+        return count
+
+    def is_present(self, value: Any) -> bool:
+        current: Node | None = self.root
+        while current is not None:
+            if current.value == value:
+                return True
+
+            current = current.next
+
+        return False
+
+    def remove(self, value: Any) -> None:
+        previous, current = None, self.root
+        found = False
+        while not found:
+            if current.value == value:
+                found = True
+            else:
+                previous, current = current, current.next
+
+        if previous is None:
+            self.root = current.next()
+        else:
+            # even if not found, then last element's next would be None
+            previous.next = current.next
+
+    def __str__(self) -> str:
+        result = 'Linked List: '
+        current = self.root
+        while current is not None:
+            result += f'{current.value} -> '
+            current = current.next
+        return result + 'NULL(END)'
+
+
+if __name__ == "__main__":
+    linked_list = LinkedList()
+
+    linked_list.add_left('dog')
+    linked_list.add_left(234)
+    linked_list.add_left(True)
+    linked_list.add_left(45.6)
+
+    print(linked_list)
+    print(linked_list.size)
+    print(linked_list.is_present(45))
+
+    linked_list.remove(234)
+    print(linked_list)
