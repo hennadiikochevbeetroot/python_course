@@ -3,7 +3,9 @@ def is_palindrome_iterative(word: str):
     # O(N)
     return word == word[::-1]
 
-
+# racecar
+# civic
+# hannah
 def is_palindrome_recursive(word: str):
     if len(word) <= 1:
         # base case

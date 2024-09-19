@@ -15,9 +15,10 @@ class LinkedList:
 
     def add_right(self, value: Any) -> None:
         if self.root is None:
-            self.root = Node(value, None)
+            self.root = Node(value, self.root)
         else:
             current = self.root
+            # O(N)
             while current.next is not None:
                 current = current.next
             current.next = Node(value, None)
@@ -57,17 +58,22 @@ class LinkedList:
     def remove(self, value: Any) -> None:
         previous, current = None, self.root
         found = False
-        while not found:
+        while not found and current is not None:
             if current.value == value:
                 found = True
             else:
                 previous, current = current, current.next
 
         if previous is None:
+            # remove first element
+            # (prev_root)curr(value) -> (new_root)curr.next
             self.root = current.next
         else:
-            # even if not found, then last element's next would be None
-            previous.next = current.next
+            # remove middle or last element
+            # prev -> curr(value) -> curr.next
+            # even if not found,
+            # then last element's next would be None
+            previous.next = current.next if current is not None else None
 
     def __str__(self) -> str:
         result = 'Linked List: '
@@ -90,10 +96,7 @@ if __name__ == "__main__":
     linked_list.add_right('rightest')
 
     print(linked_list)
-    print(linked_list.size)
-    print(linked_list.is_present(45))
-
-    linked_list.remove(234)
+    linked_list.remove(345)
     print(linked_list)
     print(linked_list.index('dog'))
     print(linked_list.index(234))

@@ -1,10 +1,9 @@
+import random
+
+
 class Queue:
     def __init__(self):
         self._items = []
-
-    @property
-    def is_empty(self):
-        return self.size == 0
 
     def enqueue(self, item):
         self._items.insert(0, item)
@@ -17,13 +16,13 @@ class Queue:
         return len(self._items)
 
 
-def hot_potato_game(names: list[str], switches: int):
+def hot_potato_game(names: list[str]):
     queue = Queue()
     for name in names:
         queue.enqueue(name)
 
     while queue.size > 1:
-        for switch in range(switches):
+        for switch in range(random.randint(3, 6)):
             # Put each next child to be last
             child = queue.dequeue()
             print(f'{child} gave potato to next one')
@@ -37,4 +36,4 @@ def hot_potato_game(names: list[str], switches: int):
 
 
 children = ["Bill", "David", "Susan", "Jane", "Kent", "Brad"]
-hot_potato_game(children, 7)
+hot_potato_game(children)

@@ -28,18 +28,15 @@ def is_palindrome(word: str) -> bool:
     for char in word:
         deque.add_rear(char)
 
-    still_palindrome = True
     # If only one char left in deque,
     # then it is still symmetric
-    while deque.size > 1 and still_palindrome:
+    while deque.size > 1:
         first_char = deque.remove_rear()
         last_char = deque.remove_front()
         if first_char != last_char:
-            still_palindrome = False
+            return False
 
-    return still_palindrome
-
-
-print(is_palindrome('radare'))
+    return True
 
 
+print(is_palindrome('radar'))

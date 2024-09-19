@@ -1,6 +1,6 @@
-import queue
+from queue import Queue
 
-q = queue.Queue()
+q = Queue()
 q.put(1)  # enqueue
 q.put(2)
 q.put(3)
