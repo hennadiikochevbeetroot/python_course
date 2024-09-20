@@ -1,8 +1,12 @@
 import timeit
 
+# Interpolation Search is an improved variant of binary search
+# that works on sorted arrays. Instead of always dividing the array into two halves
+# (like binary search), interpolation search tries to estimate the position of the target
+# element by using the values at the start and end of the array,
+# assuming a uniform distribution of elements.
 
 # O(log(logN)) - only for sorted and uniformly distributed data
-# Made binary search better by using linear interpolation-based formula
 
 def interpolation_search(array: list[int], target: int) -> int:
     start, end = 0, len(array) - 1

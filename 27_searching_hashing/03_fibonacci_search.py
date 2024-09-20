@@ -1,5 +1,9 @@
 import timeit
 
+# This search technique uses the Fibonacci sequence
+# to divide the array into smaller sections,
+# leveraging the properties of the sequence
+# to perform fewer comparisons.
 
 # O(logN) - only for sorted arrays
 def fibonacci_search(array: list[int], target: int) -> int:

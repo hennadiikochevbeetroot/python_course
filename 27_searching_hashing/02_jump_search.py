@@ -1,6 +1,11 @@
 import math
 import timeit
 
+# Jump Search is an efficient searching algorithm for sorted arrays.
+# It works by jumping ahead by fixed steps (or blocks)
+# instead of scanning elements one by one.
+# Once it finds a block where the target element could exist,
+# it performs a linear search within that block.
 
 # O(sqrt(N)) - only for sorted arrays - is better than O(N), but worse than O(logN)
 def jump_search(array: list[int], target: int) -> int:
