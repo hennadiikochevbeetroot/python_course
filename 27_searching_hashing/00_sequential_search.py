@@ -1,4 +1,7 @@
 # O(N) complexity
+import timeit
+
+
 def sequential_search(array: list[int], element: int) -> int:
     idx = 0
     while idx < len(array):
@@ -9,6 +12,12 @@ def sequential_search(array: list[int], element: int) -> int:
     return -1
 
 
-array = [-100, -1.5, 2, 3, 4, 6, 31, 101]
+array = [num for num in range(-100, 100)]
 element = 6
 print(sequential_search(array, element))
+
+timer = timeit.timeit(
+    stmt=lambda: sequential_search(array, element),
+    number=1000000,
+)
+print(timer)

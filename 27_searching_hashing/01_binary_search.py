@@ -1,3 +1,6 @@
+import timeit
+
+
 def binary_search(array: list[int], element: int):
     start, end = 0, len(array) - 1
 
@@ -14,6 +17,12 @@ def binary_search(array: list[int], element: int):
     return -1
 
 
-array = [-100, -1.5, 2, 3, 4, 6, 31, 101]
+array = [num for num in range(-100, 100)]
 element = 6
 print(binary_search(array, element))
+
+timer = timeit.timeit(
+    stmt=lambda: binary_search(array, element),
+    number=1000000,
+)
+print(timer)
