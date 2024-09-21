@@ -4,7 +4,7 @@ import timeit
 # to divide the array into smaller sections,
 # leveraging the properties of the sequence
 # to perform fewer comparisons.
-
+# 0 1 1 2 3 5 8 13 21 34 55
 # O(logN) - only for sorted arrays
 def fibonacci_search(array: list[int], target: int) -> int:
     array_size = len(array)

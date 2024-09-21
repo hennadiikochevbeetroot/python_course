@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from typing import Any
 
-
 class Node:
     def __init__(self, value: Any, prev: Node | None = None, next: Node | None = None):
         self.value = value
@@ -39,31 +38,34 @@ class DoublyLinkedList:
         current = self.root
         while current is not None:
             if current.value == value:
+                # Not first element
                 if current.prev is not None:
                     current.prev.next = current.next
+                # Not last element
                 if current.next is not None:
                     current.next.prev = current.prev
                 if current == self.root:
                     self.root = current.next
+                    self.root.prev = None
                 return
 
             current = current.next
 
     def print_forward(self):
-        print('Doubly Linked List (forward):')
+        print('Doubly Linked List (forward): NULL <- ', end='')
         current = self.root
         while current is not None:
-            print(current.value, end=' <-> ' if current.next is not None else '\n')
+            print(current.value, end=' <-> ' if current.next is not None else ' -> NULL \n')
             current = current.next
 
     def print_backward(self):
-        print('Doubly Linked List (backward):')
+        print('Doubly Linked List (backward): NULL <- ', end='')
         current = self.root
         while current.next is not None:
             current = current.next
 
         while current is not None:
-            print(current.value, end=' <-> ' if current.prev else '\n')
+            print(current.value, end=' <-> ' if current.prev else ' -> NULL \n')
             current = current.prev
 
 
@@ -77,6 +79,6 @@ if __name__ == '__main__':
 
     doubly_linked_list.print_forward()
     doubly_linked_list.remove(10)
-
+    #
     doubly_linked_list.print_forward()
     doubly_linked_list.print_backward()

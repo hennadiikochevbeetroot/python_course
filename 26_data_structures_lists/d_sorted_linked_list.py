@@ -35,6 +35,7 @@ class SortedLinkedList:
 
         return False
 
+    # O(1) - root, O(N) - last element
     def add(self, value: Number) -> None:
         previous, current = None, self.root
         while current is not None:

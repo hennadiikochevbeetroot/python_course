@@ -5,16 +5,16 @@ import timeit
 # It works by jumping ahead by fixed steps (or blocks)
 # instead of scanning elements one by one.
 # Once it finds a block where the target element could exist,
-# it performs a linear search within that block.
+# it performs a linear (sequential) search within that block.
 
 # O(sqrt(N)) - only for sorted arrays - is better than O(N), but worse than O(logN)
 def jump_search(array: list[int], target: int) -> int:
     array_size = len(array)
     jump_size = int(math.sqrt(array_size))
-    block_end = jump_size
 
     # Search for block where array[block_start] <= target <= array[block_end]
-    block_start = 0
+    # 1 2 3 4 5 6 7 8 9
+    block_start, block_end = 0, jump_size
     while array[min(block_end, array_size) - 1] < target:
         block_start = block_end
         block_end += jump_size

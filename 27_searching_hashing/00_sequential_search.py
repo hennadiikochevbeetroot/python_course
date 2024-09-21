@@ -16,7 +16,6 @@ def sequential_search(array: list[int], target: int) -> int:
 array = [num for num in range(-100, 100)]
 target = 6
 print(sequential_search(array, target))
-
 timer = timeit.timeit(
     stmt=lambda: sequential_search(array, target),
     number=1000000,

@@ -7,6 +7,9 @@ import timeit
 # assuming a uniform distribution of elements.
 
 # O(log(logN)) - only for sorted and uniformly distributed data
+# 8 - 3 - 1
+# 16 - 4 - 2
+# 1024 - 10 - 3
 
 def interpolation_search(array: list[int], target: int) -> int:
     start, end = 0, len(array) - 1
