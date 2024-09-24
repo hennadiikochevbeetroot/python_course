@@ -49,7 +49,7 @@ class Graph:
         self.time = 0
 
     def __iter__(self):
-        return iter(self.keys_to_vertices.values())
+        return iter(sorted(self.keys_to_vertices.values(), key=lambda v: v.key))
 
     def __len__(self):
         return len(self.keys_to_vertices)
@@ -84,6 +84,7 @@ class Graph:
         vertices_queue = [start_vertex]
         while vertices_queue:
             current_vertex = vertices_queue.pop(0)
+            print('Visiting Vertex ', current_vertex.key)
             for neighbor in current_vertex.get_neighbors():
                 # WHITE - non-visited neighbor
                 if neighbor.color == VertexColor.WHITE:
@@ -96,12 +97,8 @@ class Graph:
             current_vertex.color = VertexColor.BLACK
 
     # DFS Algorithm (solved with recursive visiting next neighbors and backtracking)
-    def depth_first_search(self):
-        for vertex in self:
-            if vertex.color == VertexColor.WHITE:
-                self.dfs_visit(vertex)
-
-    def dfs_visit(self, start_vertex: Vertex):
+    def depth_first_search(self, start_vertex: Vertex):
+        print('Visiting Vertex ', start_vertex.key)
         start_vertex.color = VertexColor.GRAY
         self.time += 1
         start_vertex.discovery_time = self.time
@@ -109,7 +106,7 @@ class Graph:
             if next_vertex.color == VertexColor.WHITE:
                 # If not visited yet (is white), then set it to backtrack and visit it recursively
                 next_vertex.previous = start_vertex
-                self.dfs_visit(next_vertex)
+                self.depth_first_search(next_vertex)
         # Once finished all recursive visits to neighbors, set current to be blacked, as already processed
         start_vertex.color = VertexColor.BLACK
         self.time += 1
