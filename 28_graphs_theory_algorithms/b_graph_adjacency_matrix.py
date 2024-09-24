@@ -1,5 +1,6 @@
 from __future__ import annotations
 import enum
+import heapq
 import sys
 
 
@@ -23,7 +24,7 @@ class Vertex:
         return self.key < other.key
 
     def get_neighbor_weight(self, neighbor: Vertex) -> int | None:
-        return self.neighbors_to_weights.get(neighbor)
+        return self.neighbors_to_weights.get(neighbor, 0)
 
     def set_neighbor_weight(self, neighbor: Vertex, weight: int = 0):
         self.neighbors_to_weights[neighbor] = weight
@@ -72,6 +73,11 @@ class Graph:
         self.keys_to_vertices[from_key].set_neighbor_weight(self.keys_to_vertices[to_key], weight)
         self.edges[(from_key, to_key)] = weight
 
+    def print_distances(self):
+        print('--------------------------------------------')
+        for vertex in self:
+            print(f'Distance to vertex {vertex.key} = {vertex.distance}')
+
     def reset_distances(self, default_distance: int = sys.maxsize):
         for vertex in self:
             vertex.distance = default_distance
@@ -112,17 +118,35 @@ class Graph:
         self.time += 1
         start_vertex.closing_time = self.time
 
-    # Dijkstra Algorithm
+    # Dijkstra Algorithm (solved with heap as Priority Queue)
+    # Finds shortest path between vertices
     def dijkstra(self, start_vertex: Vertex):
-        pass
+        start_vertex.distance = 0
+        not_yet_visited: list[list[int | Vertex]] = [[start_vertex.distance, start_vertex]]
+        heapq.heapify(not_yet_visited)
+        while not_yet_visited:
+            current_vertex: Vertex = heapq.heappop(not_yet_visited)[1]
+            self.print_distances()
+            for next_vertex in current_vertex.get_neighbors():
+                new_distance = current_vertex.distance + current_vertex.get_neighbor_weight(next_vertex)
+                if new_distance < next_vertex.distance:
+                    next_vertex.distance = new_distance
+                    next_vertex.previous = current_vertex
+                    found = False
+                    for distance_vertex in not_yet_visited:
+                        if distance_vertex[1].key == next_vertex.key:
+                            distance_vertex[0] = next_vertex.distance
+                            heapq.heapify(not_yet_visited)
+                            found = True
+                    if not found:
+                        heapq.heappush(not_yet_visited, [next_vertex.distance, next_vertex])
+
+    # Homework - do it autonomously as an extra task
 
     # Bellman-Ford Algorithm
     def bellman_ford(self, start_vertex: Vertex):
         pass
 
+    # Prim Algorithm
     def prim(self, start_vertex: Vertex):
         pass
-
-
-if __name__ == '__main__':
-    pass
