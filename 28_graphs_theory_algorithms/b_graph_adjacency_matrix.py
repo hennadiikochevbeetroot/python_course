@@ -5,9 +5,9 @@ import sys
 
 
 class VertexColor(str, enum.Enum):
-    WHITE = 'white'
-    GRAY = 'gray'
-    BLACK = 'black'
+    WHITE = 'white'   # Unprocessed vertex
+    GRAY = 'gray'     # Neighbor processed vertex
+    BLACK = 'black'   # Fully processed vertex
 
 
 class Vertex:
@@ -15,7 +15,7 @@ class Vertex:
         self.key = key
         self.neighbors_to_weights: dict[Vertex, int] = {}
         self.color = VertexColor.WHITE
-        self.distance = sys.maxsize
+        self.distance = sys.maxsize   # float('inf')
         self.previous = None
         self.discovery_time = 0
         self.closing_time = 0
@@ -23,14 +23,14 @@ class Vertex:
     def __lt__(self, other: Vertex) -> bool:
         return self.key < other.key
 
-    def get_neighbor_weight(self, neighbor: Vertex) -> int | None:
+    def get_neighbor_weight(self, neighbor: Vertex) -> int:
         return self.neighbors_to_weights.get(neighbor, 0)
 
     def set_neighbor_weight(self, neighbor: Vertex, weight: int = 0):
         self.neighbors_to_weights[neighbor] = weight
 
     def get_neighbors(self) -> tuple[Vertex, ...]:
-        return tuple(self.neighbors_to_weights.keys())
+        return tuple(sorted(self.neighbors_to_weights.keys(), key=lambda vertex: vertex.key))
 
     def __str__(self):
         return "{:^8}|{:^8}|{:^8}|{:^8}|{:^8}| {}".format(
@@ -46,7 +46,7 @@ class Vertex:
 class Graph:
     def __init__(self):
         self.keys_to_vertices: dict[int, Vertex] = {}
-        self.edges: dict[tuple[int, int], int] = {}
+        self.edges: dict[tuple[int, int], int] = {}   # (source, destination): weight
         self.time = 0
 
     def __iter__(self):
@@ -58,10 +58,10 @@ class Graph:
     def __contains__(self, key: int) -> bool:
         return key in self.keys_to_vertices
 
-    def get_vertex(self, key: int):
+    def get_vertex(self, key: int) -> Vertex:
         return self.keys_to_vertices.get(key)
 
-    def set_vertex(self, key: int):
+    def set_vertex(self, key: int) -> None:
         self.keys_to_vertices[key] = Vertex(key)
 
     def add_edge(self, from_key: int, to_key: int, weight: int = 0):
@@ -88,7 +88,7 @@ class Graph:
         start_vertex.distance = 0
         start_vertex.previous = None
         vertices_queue = [start_vertex]
-        while vertices_queue:
+        while len(vertices_queue) > 0:
             current_vertex = vertices_queue.pop(0)
             print('Visiting Vertex ', current_vertex.key)
             for neighbor in current_vertex.get_neighbors():

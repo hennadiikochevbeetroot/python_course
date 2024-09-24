@@ -42,7 +42,7 @@ class Graph:
         return tuple(self.keys_to_vertices.keys())
 
     def __iter__(self):
-        return iter(self.keys_to_vertices.values())
+        return iter(sorted(self.keys_to_vertices.values(), key=lambda vertex: vertex.key))
 
     def __str__(self):
         result = f'Directed Graph with vertices: {self.vertices}\n'

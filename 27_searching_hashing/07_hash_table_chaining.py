@@ -17,7 +17,7 @@ class HashTable:
     def hash(self, key: Hashable):
         return hash(key) % self.max_size
 
-    # O(1) - best and average, worst - O(N) if bad hash function
+    # O(1) - insert best and average, search worst case - O(N) if bad hash function
     def insert(self, key: Hashable, value: Any) -> None:
         hash = self.hash(key)
         for pair in self.table[hash]:
@@ -25,12 +25,16 @@ class HashTable:
                 # Found key - update
                 pair.value = value
                 return
-        # New key
+        # New key - add
         self.table[hash].append(Pair(key, value))
 
     # O(1) - best and average, worst - O(N) if bad hash function
     def lookup(self, key: Hashable) -> Any:
         hash = self.hash(key)
+        # self.table[hash] - N
+        # O(N)
+        # self.table[hash] - 0, 1, 2
+        # O(C) -> O(1)
         for pair in self.table[hash]:
             if pair.key == key:
                 return pair.value
@@ -52,8 +56,8 @@ class HashTable:
     def __str__(self):
         result = 'Hash Table: {'
         pairs_set = set()
-        for bucket in self.table:
-            pairs = ', '.join(f'{pair.key} : {pair.value}' for pair in bucket)
+        for slot in self.table:
+            pairs = ', '.join(f'{pair.key} : {pair.value}' for pair in slot)
             if pairs:
                 pairs_set.add(pairs)
 
@@ -69,5 +73,3 @@ if __name__ == "__main__":
     print(hash_table['banana'])
     print(hash_table.pop('banana'))
     print(hash_table)
-
-
