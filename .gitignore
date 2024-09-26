@@ -6,6 +6,7 @@
 *.log
 *.txt
 !*requirements.txt
+!*installing.txt
 *.env
 sqlite_installation
 *.db

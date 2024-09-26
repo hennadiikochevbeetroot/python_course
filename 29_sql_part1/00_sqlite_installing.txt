@@ -1,0 +1,21 @@
+Windows:
+ Link: https://www.sqlite.org/download.html
+ Section "Precompiled Binaries for Windows", select both x64
+ Unpack zip archives to any installation folder
+ Usage: go to installation folder, open in terminal/cmd, run:
+ ./sqlite3.exe db_file.db
+
+Mac:
+ Says to be mostly pre-installed on modern Macs
+ Check with sqlite3 command
+ Or:
+ sudo port install sqlite3
+ brew install sqlite3
+ Usage: sqlite3 db_file.db
+
+Linux:
+ Command line
+ Ubuntu: apt install sqlite3
+ Fedora: dnf install sqlite
+ Arch/Manjaro: pacman -S sqlite
+ Usage: sqlite3 db_file.db
