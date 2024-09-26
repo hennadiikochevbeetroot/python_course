@@ -15,7 +15,7 @@ class Vertex:
         self.key = key
         self.neighbors_to_weights: dict[Vertex, int] = {}
         self.color = VertexColor.WHITE
-        self.distance = sys.maxsize   # float('inf')
+        self.distance: int = sys.maxsize   # float('inf')
         self.previous = None
         self.discovery_time = 0
         self.closing_time = 0
@@ -83,7 +83,7 @@ class Graph:
             vertex.distance = default_distance
 
     # BFS Algorithm (solved with list as Queue)
-    # Finds shortest distance from start_vertex to all others
+    # Finds shortest distance (1) from start_vertex to all others
     def breadth_first_search(self, start_vertex: Vertex):
         start_vertex.distance = 0
         start_vertex.previous = None
@@ -131,7 +131,7 @@ class Graph:
                 new_distance = current_vertex.distance + current_vertex.get_neighbor_weight(next_vertex)
                 if new_distance < next_vertex.distance:
                     next_vertex.distance = new_distance
-                    next_vertex.previous = current_vertex
+                    # next_vertex.previous = current_vertex
                     found = False
                     for distance_vertex in not_yet_visited:
                         if distance_vertex[1].key == next_vertex.key:
@@ -139,6 +139,7 @@ class Graph:
                             heapq.heapify(not_yet_visited)
                             found = True
                     if not found:
+                        # [1 , 3] -> 2 => [1, 2, 3]
                         heapq.heappush(not_yet_visited, [next_vertex.distance, next_vertex])
 
     # Homework - do it autonomously as an extra task

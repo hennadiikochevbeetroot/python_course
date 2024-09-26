@@ -12,6 +12,7 @@ Mac:
  sudo port install sqlite3
  brew install sqlite3
  Usage: sqlite3 db_file.db
+ sqlite3 --help
 
 Linux:
  Command line
