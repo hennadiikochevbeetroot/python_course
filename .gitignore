@@ -7,3 +7,5 @@
 *.txt
 !*requirements.txt
 *.env
+sqlite_installation
+*.db
