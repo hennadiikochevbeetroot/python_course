@@ -1,0 +1,9 @@
+-- Northwind context:
+--1. Add yourself as an employee of the company to the position of Intern.
+--2. Change your position to Director.
+--3. Copy the Orders table to the OrdersArchive table.
+--4. Clear the OrdersArchive table.
+--5. Without deleting the OrdersArchive table, fill it with information again.
+--6. Delete ten orders made by customers from the OrdersArchive table
+-- to Berlin.
+--7. Enter two products with your own name into the database
