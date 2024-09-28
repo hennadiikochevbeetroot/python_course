@@ -7,6 +7,7 @@
 -- would combine the first two letters from the first name column and the first four letters from the last name column
 -- the user stored in the database, as well as the domain with your last name.
 
+--  select join, subquery
 -- Northwind context:
 -- 1. Display all data on products, their categories, and suppliers,
 -- even if the latter of them are absent.

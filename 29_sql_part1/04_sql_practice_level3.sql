@@ -1,4 +1,5 @@
 -- Northwind context:
+-- DML - create, update, delete, truncate
 --1. Add yourself as an employee of the company to the position of Intern.
 --2. Change your position to Director.
 --3. Copy the Orders table to the OrdersArchive table.

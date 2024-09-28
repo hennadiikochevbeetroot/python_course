@@ -1,3 +1,4 @@
+-- select where order by limit
 -- 1. Use the SELECT command to display your last name and first name on the screen.
 -- 2. Select all product names from the Products table,
 -- the sale of which has not been discontinued.
