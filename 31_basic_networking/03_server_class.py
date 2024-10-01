@@ -31,6 +31,7 @@ class MyServer:
                 conn.sendall(processed_data)
                 print('Server sends after processing: ', processed_data)
 
-
+# Caesar Cipher principle
+# COW -> key +1 -> DPX
 with MyServer(host='localhost', port=65432) as myserver:
     myserver.answer_with_uppercase()

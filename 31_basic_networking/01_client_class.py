@@ -17,8 +17,7 @@ class MyClient:
 
     def send_message_receive_answer(self, msg: str):
         self.sock.sendall(msg.encode())
-        answer = self.sock.recv(1024)
-        return answer
+        return self.sock.recv(1024)
 
 
 with MyClient(host='localhost', port=65432) as myclient:

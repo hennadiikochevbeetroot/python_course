@@ -17,11 +17,7 @@ class MyClient:
 
     def send_message_receive_answer(self, msg: str):
         self.sock.sendall(msg.encode())
-        answer = self.sock.recv(1024)
-        return answer
-
-    def user_input(self):
-        pass
+        return self.sock.recv(1024)
 
 
 while True:

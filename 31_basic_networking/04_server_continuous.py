@@ -5,7 +5,9 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Bind the socket to the port
 server_address = ('localhost', 65432)
-print('starting up on {} port {}'.format(*server_address))
+# print('starting up on {} port {}'.format(*server_address))
+host, port = server_address
+print(f'starting up on {host} port {port}')
 sock.bind(server_address)
 
 # Listen for incoming connections
