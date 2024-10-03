@@ -2,6 +2,8 @@ import threading
 import random
 import string
 
+import requests
+
 
 def random_string(length=5):
     characters = string.ascii_letters + string.digits + string.punctuation
@@ -11,6 +13,7 @@ def random_string(length=5):
 def business_logic(param1: str, param2: str):
     # getName() method is deprecated
     thread_name = threading.current_thread().name
+    response = requests.get('https://api.github.com')
     print(f'({thread_name}) Business logic with param1: {param1}, param2: {param2}')
 
 

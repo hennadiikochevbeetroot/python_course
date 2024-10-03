@@ -1,12 +1,12 @@
 import threading
 import time
 
-event = threading.Event()
+setup_event = threading.Event()
 
 
 def worker():
     print("[Worker] Waiting for the setup to complete...")
-    event.wait()
+    setup_event.wait()
     print("[Worker] Setup complete, starting processing...")
     time.sleep(2)
     print("[Worker] Processing done.")
@@ -16,7 +16,7 @@ def setup():
     print("[Setup] Performing setup...")
     time.sleep(3)
     print("[Setup] Setup is complete. Notifying worker...")
-    event.set()
+    setup_event.set()
 
 
 setup_thread = threading.Thread(target=setup)

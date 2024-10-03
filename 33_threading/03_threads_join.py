@@ -23,7 +23,7 @@ def long_business_logic(param1: str, param2: str):
 
 
 threads = []
-for time_to_take in range(3):
+for time_to_take in range(1, 4):
     param1, param2 = random_string(), random_string()
     thread = threading.Thread(name=f'Thread{time_to_take}', target=short_business_logic,
                               args=(param1, param2, time_to_take))
@@ -36,8 +36,10 @@ long_thread.start()
 threads.append(long_thread)
 
 
-for thread in threads:
-    thread.join()     # If we wouldn't join, below print statement would work before threads finish
+# for thread in threads:
+#     thread.join()     # If we wouldn't join, below print statement would work before threads finish
+
+threads[0].join()
 
 print('All threads finished their work')
 
