@@ -4,7 +4,7 @@ import time
 
 class WorkerThread(threading.Thread):
     def __init__(self, thread_id: int, task_duration: int):
-        # Parameters to parent class constructro could be: target, name, daemon
+        # Parameters to parent class constructor could be: target, name, daemon
         super().__init__()
         self.thread_id = thread_id
         self.task_duration = task_duration
