@@ -13,9 +13,9 @@ def worker():
 
 
 def setup():
-    print("[Main] Performing setup...")
+    print("[Setup] Performing setup...")
     time.sleep(3)
-    print("[Main] Setup is complete. Notifying worker...")
+    print("[Setup] Setup is complete. Notifying worker...")
     event.set()
 
 

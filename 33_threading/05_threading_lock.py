@@ -10,6 +10,9 @@ file_lock = threading.Lock()
 def write_to_file(thread_id):
     for i in range(5):
         time.sleep(0.1)
+        # Context manager instead of:
+        # file_lock.acquire()
+        # file_lock.release()
         with file_lock:  # Acquire the lock before writing to the file
             # So result would be - line 0 two times, line 1 two times...
             with open(file_name, 'a') as f:
