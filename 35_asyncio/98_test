@@ -1,0 +1,7 @@
+1. True or False? I/O-Bound programs spend a lot of time doing computations.
+2. Which type of concurrency (module) is best for CPU-bound programs?
+3. Is it true or false that using asyncio library in your program will always boost its performance?
+4. How to create a coroutine function?
+5. Can a coroutine be executed (executed code inside async function definition) without an event loop?
+
+
