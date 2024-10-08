@@ -8,8 +8,12 @@ async def inner(delay: int) -> str:
 
 
 async def outer(delay: int) -> str:
-    inner_result = await inner(delay)
-    await asyncio.sleep(delay)
+    tasks = [
+        asyncio.create_task(inner(delay)),
+        asyncio.create_task(asyncio.sleep(delay)),
+    ]
+    results = await asyncio.gather(*tasks)
+    inner_result = results[0]
     outer_result = f'outer result: {inner_result}'
     return outer_result
 

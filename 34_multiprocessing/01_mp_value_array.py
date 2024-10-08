@@ -1,13 +1,14 @@
 import multiprocessing
 
 
-def square_numbers(shared_array: list[int], processed_numbers: multiprocessing.Value, start_index: int, end_index: int):
+def square_numbers(shared_array: list[int], processed_numbers: multiprocessing.Value, start_index: int, end_index: int, pid: int):
     """Function to square numbers in a shared array."""
+    # 1...3, 4...6, 7...10
     for i in range(start_index, end_index):
         previous_value = shared_array[i]
         processed_numbers.value += 1
         shared_array[i] **= 2  # Squaring the number in place
-        print(f'Processed number {previous_value}: {shared_array[i]}, total processed: {processed_numbers.value}')
+        print(f'Process {pid} - number {previous_value}: {shared_array[i]}, total processed: {processed_numbers.value}')
 
 
 def main():
@@ -20,11 +21,12 @@ def main():
     chunk_size = len(numbers) // num_processes
     processes = []
     for i in range(num_processes):
+        # 0...3, 3...6, 6...9
         start_index = i * chunk_size
         # Ensure the last process handles any remaining elements
         end_index = len(numbers) if i == num_processes - 1 else start_index + chunk_size
         p = multiprocessing.Process(target=square_numbers,
-                                    args=(shared_array, processed_numbers, start_index, end_index))
+                                    args=(shared_array, processed_numbers, start_index, end_index, i))
         processes.append(p)
         p.start()
 

@@ -17,7 +17,9 @@ async def json_response(session: aiohttp.ClientSession, url: str):
 
     # Concise version
     async with session.get(url) as response:
-        return await response.json()
+        json = await response.json()
+        print('Awaited for url:', url)
+        return json
 
 
 async def get_users():

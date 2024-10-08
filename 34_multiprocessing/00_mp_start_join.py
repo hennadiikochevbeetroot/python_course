@@ -19,9 +19,9 @@ if __name__ == '__main__':
         param1, param2 = random_string(), random_string()
         process = multiprocessing.Process(target=business_logic, args=(param1, param2))
         processes.append(process)
-        process.start()
+        process.start()  # Non-blocking
 
     for process in processes:
-        process.join()
+        process.join()   # Blocking
 
     print('All processes finished')

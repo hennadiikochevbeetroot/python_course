@@ -3,8 +3,10 @@ import random
 import time
 
 
+# FIFO - what you put first, you get first
 def square(numbers: list[int], result_queue: multiprocessing.Queue):
     for number in numbers:
+        print(f'Squaring number {number}')
         result = number ** 2
         result_queue.put(result)
     # Final value
@@ -17,7 +19,7 @@ def read_squared(result_queue: multiprocessing.Queue):
         if result is None:  # Check for the final value
             break
 
-        print(result)
+        print(f'Getting from queue: ', result)
 
 
 def main():

@@ -21,6 +21,7 @@ async def main():
     future2 = asyncio.ensure_future(task2())
 
     result1 = await future1
+    print('proceed to next line')
     result2 = await future2
 
     print(result1)

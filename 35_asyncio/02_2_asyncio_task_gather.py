@@ -12,7 +12,7 @@ async def main():
     tasks = [
         asyncio.create_task(fetch_data(1, 'Result 1')),
         asyncio.create_task(fetch_data(2, 'Result 2')),
-        asyncio.create_task(fetch_data(3, 'Result 3'))
+        asyncio.create_task(fetch_data(3, 'Result 3')),
     ]
 
     results = await asyncio.gather(*tasks)

@@ -1,6 +1,7 @@
 import logging
+import multiprocessing
 import time
-from concurrent.futures import ProcessPoolExecutor
+from concurrent.futures import ProcessPoolExecutor, Future
 import os
 
 logging.basicConfig(level=logging.INFO)
@@ -15,8 +16,8 @@ def square(number: int):
 def main():
     numbers = list(range(10))
 
-    with ProcessPoolExecutor(max_workers=5) as executor:
-        future = executor.submit(square, 5)
+    with ProcessPoolExecutor(max_workers=multiprocessing.cpu_count()) as executor:
+        future: Future = executor.submit(square, 5)
         single_result = future.result()
         logging.info(f'Single result: {single_result}')
 

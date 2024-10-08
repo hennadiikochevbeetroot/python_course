@@ -18,10 +18,12 @@ def main():
         print('Multiple processes result:', multiple_results)
 
         iterator_results = pool.imap(square, numbers)
-        print(next(iterator_results))
-        print(next(iterator_results))
-        print(next(iterator_results))
-        print(next(iterator_results))
+        for result in iterator_results:
+            print(result, end=', ')
+        # print(next(iterator_results))
+        # print(next(iterator_results))
+        # print(next(iterator_results))
+        # print(next(iterator_results))
 
 
 if __name__ == '__main__':
